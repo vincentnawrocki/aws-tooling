@@ -19,7 +19,7 @@ TODO
 All action functions prototype should be like:
 
 ```python
-action_name(session: boto3.Session)->[]
+def action_name(session: boto3.Session)->[]:
 """ Perform an action on AWS account for the specified region.
 
 Arguments:
