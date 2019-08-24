@@ -1,0 +1,3 @@
+[x] Add parser
+[x] More comments
+[x] Isolate change (action in AWS) from accounts / regions coverage
