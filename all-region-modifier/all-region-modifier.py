@@ -19,7 +19,6 @@ def all_region_modifier(role: str, account_file: str, action):
         [type] -- [description]
 
     """
-
     sts_client = boto3.client('sts')
     failure_list = []
 
@@ -66,7 +65,7 @@ def all_region_modifier(role: str, account_file: str, action):
             except ClientError as error:
                 LOG.error(f"Failed to assume role {role_arn} : {error}")
 
-            failure_list += action(role=role, session=session, account=account, region=region)
+            failure_list += action(session=session)
 
     # Print error list
     if failure_list:

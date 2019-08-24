@@ -1,4 +1,5 @@
-"""Specific logging Handler class relative to TQDM progress bar printing. """
+"""Specific logging Handler class relative to TQDM progress bar printing."""
+
 import logging
 import tqdm
 
@@ -9,7 +10,6 @@ class TqdmLoggingHandler(logging.Handler):
         logging {[type]} -- [description]
 
     """
-
     def emit(self, record):
         """Actually manages logs.
 
