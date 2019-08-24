@@ -13,3 +13,21 @@ It was originally built to activate EBS encryption on all regions for many accou
 ### Usage
 
 TODO
+
+### Add an action
+
+All action functions prototype should be like:
+
+```python
+action_name(session: boto3.Session)->[]
+""" Perform an action on AWS account for the specified region.
+
+Arguments:
+    session {boto3.Session} -- a generic boto3 session opened with required privileges to perform action.
+
+Returns:
+    [str] -- A list of error string encountered during action to be displayed at the end of overall process. Should be empty if no error.
+
+"""
+```
+
