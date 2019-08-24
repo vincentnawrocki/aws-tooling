@@ -3,15 +3,19 @@ import boto3
 from botocore.exceptions import ClientError
 from logger.logger import LOG
 
-def enable_ebs_default_encryption(role: str, session: boto3.Session, account: str, region: str):
-    """Enable default EBS encryption on all regions for all accounts found in input file.
+def enable_ebs_default_encryption(session: boto3.Session)->[]:
+    """Enable default EBS encryption.
 
     Arguments:
-        role {str} -- [description]
-        account_file {str} -- [description]
+        session {boto3.Session} -- [description]
+
+    Returns:
+        [str] -- The list of error string encountered during action to be displayed at the end of overall process. Empty if no error.
 
     """
     local_failure_list = []
+    account = session.get_caller_identity()["Account"]
+    region = session.region_name
 
     try:
         ec2_client = session.client('ec2')
