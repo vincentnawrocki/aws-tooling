@@ -1,3 +1,8 @@
+"""This module regroups actions relative to EBS resource."""
+import boto3
+from botocore.exceptions import ClientError
+from logger.logger import LOG
+
 def enable_ebs_default_encryption(role: str, session: boto3.Session, account: str, region: str):
     """Enable default EBS encryption on all regions for all accounts found in input file.
 
@@ -6,7 +11,6 @@ def enable_ebs_default_encryption(role: str, session: boto3.Session, account: st
         account_file {str} -- [description]
 
     """
-
     local_failure_list = []
 
     try:
@@ -15,10 +19,8 @@ def enable_ebs_default_encryption(role: str, session: boto3.Session, account: st
         if encryption_result is False:
             local_failure_list.append(f"{account}/{region}")
         else:
-            LOG.info(
-                f"EBS default encryption enabled on {account}/{region}")
+            LOG.info(f"EBS default encryption enabled on {account}/{region}")
     except ClientError as error:
-        LOG.error(
-            f"Error during EBS default encryption setting activation: {error}")
+        LOG.error(f"Error during EBS default encryption setting activation: {error}")
 
     return local_failure_list

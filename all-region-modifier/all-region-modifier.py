@@ -1,39 +1,11 @@
 """Module to apply a change on multiple regions for multiple AWS accounts."""
 
 import json
-import logging
 import boto3
 from botocore.exceptions import ClientError
 import tqdm
 from actions.ebs import enable_ebs_default_encryption
-
-class TqdmLoggingHandler(logging.Handler):
-    """Special class to handle logging using tqdm progress bar.
-
-    Arguments:
-        logging {[type]} -- [description]
-
-    """
-
-    def emit(self, record):
-        """Actually manages logs.
-
-        Arguments:
-            record {str} -- Record to print
-
-        """
-        try:
-            msg = self.format(record)
-            tqdm.tqdm.write(msg)
-            self.flush()
-        except (KeyboardInterrupt, SystemExit):
-            raise
-        except:
-            self.handleError(record)
-
-LOG = logging.getLogger(__name__)
-LOG.setLevel(logging.INFO)
-LOG.addHandler(TqdmLoggingHandler())
+from logger.logger import LOG
 
 def all_region_modifier(role: str, account_file: str, action):
     """all_region_modifier [summary]
