@@ -85,9 +85,3 @@ def enable_ebs_default_encryption(role: str, account_file: str):
 
 enable_ebs_default_encryption(role="ebs_default_encryptioner", account_file="accounts.json")
 
-# def parser():
-#     parser = argparse.ArgumentParser()
-#     parser.add_argument(name="accounts_file", help="", required=True)
-
-# if __name__ == "__main__":
-#     parser()
