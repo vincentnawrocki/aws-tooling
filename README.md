@@ -26,7 +26,7 @@ Arguments:
     session {boto3.Session} -- a generic boto3 session opened with required privileges to perform action.
 
 Returns:
-    [str] -- A list of error string encountered during action to be displayed at the end of overall process. Should be empty if no error.
+    [str] -- The list of error string encountered during action to be displayed at the end of overall process. Empty if no error.
 
 """
 ```
