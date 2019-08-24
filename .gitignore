@@ -103,3 +103,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 enable_ebs_default_encrypt/accounts.json
+
+# vscode conf
+.vscode
