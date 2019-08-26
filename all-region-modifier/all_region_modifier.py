@@ -3,7 +3,9 @@
 import json
 import boto3
 from botocore.exceptions import ClientError
+import argparse
 import tqdm
+import actions
 from actions.ebs import enable_ebs_default_encryption
 from logger.logger import LOG
 
@@ -65,7 +67,7 @@ def all_region_modifier(role: str, account_file: str, action):
             except ClientError as error:
                 LOG.error(f"Failed to assume role {role_arn} : {error}")
 
-            failure_list += action(session=session)
+            failure_list += action(session=session, account=account)
 
     # Print error list
     if failure_list:
@@ -73,5 +75,15 @@ def all_region_modifier(role: str, account_file: str, action):
     else:
         LOG.info("No error during the process")
 
+def all_region_modifier_parser():
+    """all_region_modifier_parser: Collecting args to launch all region modifier function."""
+    parser = argparse.ArgumentParser(description="Apply change on all regions for all accounts listed in provided input.")
 
-all_region_modifier(role="ebs_default_encryptioner", account_file="accounts.json", action=enable_ebs_default_encryption)
+    parser.add_argument("role", type=str, help='The role to execute describe_regions and the action')
+    parser.add_argument("account_file", type=str, help='The relative path to json file with accounts')
+
+    args = parser.parse_args()
+
+    all_region_modifier(role=args.role, account_file=args.account_file, action=actions.ebs.enable_ebs_default_encryption)
+
+all_region_modifier_parser()

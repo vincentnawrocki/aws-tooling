@@ -3,7 +3,7 @@ import boto3
 from botocore.exceptions import ClientError
 from logger.logger import LOG
 
-def enable_ebs_default_encryption(session: boto3.Session)->[]:
+def enable_ebs_default_encryption(session: boto3.Session, account: str)->[]:
     """Enable default EBS encryption.
 
     Arguments:
@@ -14,7 +14,6 @@ def enable_ebs_default_encryption(session: boto3.Session)->[]:
 
     """
     local_failure_list = []
-    account = session.get_caller_identity()["Account"]
     region = session.region_name
 
     try:
