@@ -2,6 +2,10 @@
 
 This repo contains few tools inpired by problem I faced, and tried to automate to ease my life.
 
+## Disclaimer
+
+**Many other tools might do the same, better, faster, stronger (, harder?). Objective is to develop some tool to automate some stuff and for the pleasure of development.**
+
 ## all-region-modifier
 
 ### What is it?
