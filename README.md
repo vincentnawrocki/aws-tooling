@@ -12,7 +12,7 @@ It was originally built to activate EBS encryption on all regions for many accou
 
 ### Usage
 
-```shell
+```
 $ python3 all_region_modifier.py -h
 usage: all_region_modifier.py [-h] role account_file
 
