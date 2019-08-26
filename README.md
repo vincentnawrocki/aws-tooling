@@ -19,11 +19,12 @@ TODO
 All action functions prototype should be like:
 
 ```python
-def action_name(session: boto3.Session)->[]:
+def action_name(session: boto3.Session, account: str)->[]:
 """ Perform an action on AWS account for the specified region.
 
 Arguments:
     session {boto3.Session} -- a generic boto3 session opened with required privileges to perform action.
+    account {str} -- account number currently processed, for logging and perf purpose as session is already opened.
 
 Returns:
     [str] -- The list of error string encountered during action to be displayed at the end of overall process. Empty if no error.
