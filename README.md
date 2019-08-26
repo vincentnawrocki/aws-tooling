@@ -12,7 +12,19 @@ It was originally built to activate EBS encryption on all regions for many accou
 
 ### Usage
 
-TODO
+```shell
+$ python3 all_region_modifier.py -h
+usage: all_region_modifier.py [-h] role account_file
+
+Apply change on all regions for all accounts listed in provided input.
+
+positional arguments:
+  role          The role to execute describe_regions and the action
+  account_file  The relative path to json file with accounts
+
+optional arguments:
+  -h, --help    show this help message and exit
+```
 
 ### Add an action
 
