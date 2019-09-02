@@ -32,7 +32,7 @@ optional arguments:
 
 #### Example
 
-[All Region Modifier in action](all_regions_modifier_example.png)
+![All Region Modifier in action](all_regions_modifier_example.png)
 
 ### Add an action
 
