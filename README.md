@@ -30,6 +30,10 @@ optional arguments:
   -h, --help    show this help message and exit
 ```
 
+#### Example
+
+[All Region Modifier in action](all_regions_modifier_example.png)
+
 ### Add an action
 
 All action functions prototype should be like:
